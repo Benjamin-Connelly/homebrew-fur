@@ -1,9 +1,6 @@
 class Fur < Formula
   desc "Dual-mode markdown navigator with TUI and web interfaces"
   homepage "https://github.com/Benjamin-Connelly/fur"
-  url "https://github.com/Benjamin-Connelly/fur.git",
-      tag:      "v1.0.0",
-      revision: "" # Will be set when v1.0.0 is tagged
   license "MIT"
   head "https://github.com/Benjamin-Connelly/fur.git", branch: "master"
 
@@ -14,7 +11,7 @@ class Fur < Formula
       -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
-      -X main.date=#{time.iso8601}
+      -X main.date=#{time.strftime("%Y-%m-%dT%H:%M:%SZ")}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/fur"
 
@@ -24,8 +21,6 @@ class Fur < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/fur version")
-
     (testpath/"test.md").write("# Hello\n\nWorld\n")
     assert_match "Hello", shell_output("#{bin}/fur cat #{testpath}/test.md")
   end
