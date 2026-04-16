@@ -1,6 +1,9 @@
 class Fur < Formula
   desc "Dual-mode markdown navigator with TUI and web interfaces"
   homepage "https://github.com/Benjamin-Connelly/fur"
+  url "https://github.com/Benjamin-Connelly/fur.git",
+      tag:      "v1.0.0",
+      revision: "91e1efbc87cd7fca0724b337bffe106e8f0511f8"
   license "MIT"
   head "https://github.com/Benjamin-Connelly/fur.git", branch: "master"
 
@@ -21,6 +24,8 @@ class Fur < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/fur version")
+
     (testpath/"test.md").write("# Hello\n\nWorld\n")
     assert_match "Hello", shell_output("#{bin}/fur cat #{testpath}/test.md")
   end
