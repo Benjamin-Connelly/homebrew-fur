@@ -2,8 +2,8 @@ class Fur < Formula
   desc "Dual-mode markdown navigator with TUI and web interfaces"
   homepage "https://github.com/Benjamin-Connelly/fur"
   url "https://github.com/Benjamin-Connelly/fur.git",
-      tag:      "v1.0.0",
-      revision: "91e1efbc87cd7fca0724b337bffe106e8f0511f8"
+      tag:      "v1.0.1",
+      revision: "18d22cea179e5e279262fc4725f80705b6c44b60"
   license "MIT"
   head "https://github.com/Benjamin-Connelly/fur.git", branch: "master"
 
